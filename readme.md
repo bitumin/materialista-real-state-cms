@@ -18,7 +18,7 @@ The front end design of Materialista is inspired by the famous web site [http://
 
 ## The history
 
-I wrote this app arround two years ago as a personal exercise more than anything else. In fact, I think it was the second Laravel app I wrote! Since I was not very experienced with the framework, I'm sure I didn't write the code as elegantly as any Laravel project deserves. Anyway, the app is quite functional, I keep it updated and I promise to improve in my free time.
+I wrote this app arround two years ago as a personal exercise more than anything else. In fact, I think it was the second Laravel app I wrote! Since I was not very experienced with the framework, I'm sure I didn't write the code as elegantly as any Laravel project deserves. Anyway, the app is quite functional, I keep it updated and I promise to improve it in my free time.
 
 ## What you can do...
 
