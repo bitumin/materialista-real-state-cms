@@ -16,11 +16,11 @@ Materialista is a free and open-source content manager for easily publishing rea
 
 The front end design of Materialista is inspired by the famous web site [http://idealista.com](http://idealista.com). The back end design is based on a [Metronic](http://keenthemes.com/metronic-theme/) template.
 
-## The history
+## The story about the app
 
 I wrote this app arround two years ago as a personal exercise more than anything else. In fact, I think it was the second Laravel app I wrote! Since I was not very experienced with the framework, I'm sure I didn't write the code as elegantly as any Laravel project deserves. Anyway, the app is quite functional, I keep it updated and I promise to improve it in my free time.
 
-## What you can do...
+## Contributing...
 
 If you feel like working on this app yourself, feel free to do it. Of course, I would appreciate if you contact me and tell me about it, but is not really necessary. If you find any bugs, mistakes, security issues... I'll be very thankful if you share them with me.    
 
