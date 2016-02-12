@@ -12,7 +12,8 @@ class Geocode
     public static function geocodeAddress($address)
     {
         $address = urlencode($address);
-        $url = "http://maps.google.es/maps/api/geocode/json?sensor=false&address={$address}";
+        $url = "https://maps.googleapis.com/maps/api/geocode/json".
+            "?sensor=false&address={$address}&key=".env('GOOGLE_API_KEY');
         $resp_json = file_get_contents($url);
         $resp = json_decode($resp_json, true);
         if ($resp['status'] == 'OK') {
