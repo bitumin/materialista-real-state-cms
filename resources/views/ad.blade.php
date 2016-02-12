@@ -115,7 +115,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12" id="ad-title">
-                <h2>{{ $ad->type[0] }} @if($operation==0) en venta @elseif($operation==1) en alquiler @endif en @if(!$ad->hide_address) @if(isset($ad->route)) {{ $ad->route }}, @endif @if(isset($ad->street_number)) {{ $ad->street_number }}, @endif @endif {{ $ad->locality }}</h2>
+                <h2>{{ $ad->type }} @if($operation==0) en venta @elseif($operation==1) en alquiler @endif en @if(!$ad->hide_address) @if(isset($ad->route)) {{ $ad->route }}, @endif @if(isset($ad->street_number)) {{ $ad->street_number }}, @endif @endif {{ $ad->locality }}</h2>
             </div>
         </div>
     </div>
@@ -240,7 +240,7 @@
                         @if($typology==0||$typology==1||$typology==2)
                         {{--common to house, apartment or country house--}}
                             <h4>Características básicas</h4>
-                            @if(isset($ad->type[0])&&$ad->type[0])<p>{{$ad->type[0]}}</p>@endif
+                            @if(isset($ad->type)&&$ad->type)<p>{{$ad->type}}</p>@endif
                             @if(isset($ad->floor_number)&&$ad->floor_number) <p>{{$ad->floor_number}}</p> @endif
                             @if((isset($ad->area_constructed)&&$ad->area_constructed)||(isset($ad->area_usable)&&$ad->area_usable)) <p> @if(isset($ad->area_constructed)&&$ad->area_constructed) <span>{{$ad->area_constructed}} m&sup2; construidos</span> @endif @if(isset($ad->area_usable)&&$ad->area_usable) <span>{{$ad->area_usable}} m&sup2; útiles</span> @endif </p> @endif
                             @if(isset($ad->n_bedrooms)&&$ad->n_bedrooms) <p>{{$ad->n_bedrooms}} habitaciones</p> @endif
@@ -267,18 +267,18 @@
                             <h4>Edificio</h4>
                             @if(isset($ad->n_floors)&&$ad->n_floors) {{$ad->n_floors}} @choice('planta|plantas',$ad->n_floors) @endif
                             @if(isset($ad->has_elevator)&&$ad->has_elevator) Con ascensor @endif
-                            <?php $certE = \App\EnergyCertification::where('id',$ad->energy_certification_id)->pluck('name'); ?>
+                            <?php $certE = \App\EnergyCertification::where('id',$ad->energy_certification_id)->value('name'); ?>
                             <p style="line-height:30px">Certificación energética:
-                                @if($certE[0]=='A') <img src="{{ asset('img/energy-cert-'.$certE[0].'.png') }}" height="18" width="29"/>
-                                @elseif($certE[0]=='B') <img src="{{ asset('img/energy-cert-'.$certE[0].'.png') }}" height="18" width="29"/>
-                                @elseif($certE[0]=='C') <img src="{{ asset('img/energy-cert-'.$certE[0].'.png') }}" height="18" width="29"/>
-                                @elseif($certE[0]=='D') <img src="{{ asset('img/energy-cert-'.$certE[0].'.png') }}" height="18" width="29"/>
-                                @elseif($certE[0]=='E') <img src="{{ asset('img/energy-cert-'.$certE[0].'.png') }}" height="18" width="29"/>
-                                @elseif($certE[0]=='F') <img src="{{ asset('img/energy-cert-'.$certE[0].'.png') }}" height="18" width="29"/>
-                                @elseif($certE[0]=='G') <img src="{{ asset('img/energy-cert-'.$certE[0].'.png') }}" height="18" width="29"/>
-                                @else {{ $certE[0] }}
+                                @if($certE=='A') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>
+                                @elseif($certE=='B') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>
+                                @elseif($certE=='C') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>
+                                @elseif($certE=='D') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>
+                                @elseif($certE=='E') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>
+                                @elseif($certE=='F') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>
+                                @elseif($certE=='G') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>
+                                @else {{ $certE }}
                                 @endif
-                                @if(in_array($certE[0],range('A','G')))
+                                @if(in_array($certE,range('A','G')))
                                     @if(isset($ad->energy_performance)&&$ad->energy_performance)
                                         ({{$ad->energy_performance}} kWh/m&sup2; a&ntilde;o)
                                         @else
@@ -308,7 +308,7 @@
                             <h4>Edificio</h4>
                             @if(isset($ad->n_floors)&&$ad->n_floors) <p>{{$ad->n_floors}} @choice('planta|plantas',$ad->n_floors)</p> @endif
                             @if(isset($ad->facade)&&$ad->facade) <p>{{ $ad->facade }}</p> @endif
-                            <?php $certE = \App\EnergyCertification::where('id',$ad->energy_certification_id)->pluck('name'); ?>
+                            <?php $certE = \App\EnergyCertification::where('id',$ad->energy_certification_id)->value('name'); ?>
                             <p style="line-height:30px">Certificación energética:
                                 @if($certE=='A') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>
                                 @elseif($certE=='B') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>
@@ -351,7 +351,7 @@
                             @if(isset($ad->n_floors)&&$ad->n_floors) <p>{{$ad->n_floors}} @choice('planta|plantas',$ad->n_floors)</p> @endif
                             @if(isset($ad->n_elevators)&&$ad->n_elevators) <p> {{ $ad->n_elevators }} @choice('ascensor|ascensores',$ad->n_elevators) </p> @endif
                             @if(isset($ad->has_offices_only)&&$ad->has_offices_only) <p>Uso exclusivo de oficinas</p> @endif
-                            <?php $certE = \App\EnergyCertification::where('id',$ad->energy_certification_id)->pluck('name'); ?>
+                            <?php $certE = \App\EnergyCertification::where('id',$ad->energy_certification_id)->value('name'); ?>
                             <p style="line-height:30px">Certificación energética:
                                 @if($certE=='A') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>
                                 @elseif($certE=='B') <img src="{{ asset('img/energy-cert-'.$certE.'.png') }}" height="18" width="29"/>

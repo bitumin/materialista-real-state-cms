@@ -72,3 +72,10 @@ vendor/
 
 ### IDE helper
 _ide_helper.php
+
+### Materialista
+/public/ads/pictures/*
+/public/ads/thumbnails/*
+!/public/ads/pictures/dummy.txt
+!/public/ads/thumbnails/dummy.txt
+
