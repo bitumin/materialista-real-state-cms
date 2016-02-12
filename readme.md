@@ -22,11 +22,11 @@ I wrote this app arround two years ago as a personal exercise more than anything
 
 ## Contributing...
 
-If you feel like working on this app yourself, feel free to do it. Of course, I would appreciate if you contact me and tell me about it, but is not really necessary. If you find any bugs, mistakes, security issues... I'll be very thankful if you share them with me.    
+If you feel like working on this app yourself, feel free to do it. Of course, I would appreciate if you contact me and tell me about it, but it is not really necessary. If you find any bugs, mistakes, security issues... I'll be very thankful if you share them with me.    
 
 ## Documentation
 
-Since this is a little app for my personal use I haven't written any documentation about it. Anyway, if you know how to use Laravel I expect that you won't have any problem understanding the main aspects of this app.
+Since this is a little app for my personal use I haven't written any documentation for it. Anyway, if you know how to use Laravel I expect that you won't have any problem understanding the main aspects of this app.
 
 ## License
 
