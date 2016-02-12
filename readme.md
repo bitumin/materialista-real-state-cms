@@ -30,4 +30,8 @@ Since this is a little app for my personal use I haven't written any documentati
 
 ## License
 
-Materialista is a open-source Laravel app under the [MIT license](http://opensource.org/licenses/MIT)
+Materialista is an open-source Laravel app under the [MIT license](http://opensource.org/licenses/MIT). Laravel, any of the Laravel packages, the Metronic template, JQuery and all the JQuery plugins are all subject to their own licenses.
+
+## Contact
+
+[moriana.mitxel@gmail.com](mailto:moriana.mitxel@gmail.com)
