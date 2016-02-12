@@ -57,7 +57,7 @@ class HomeController extends Controller {
 
     public function postAdminsAndLocalities()
     {
-        $input = \Request::input();
+        $input = \Request::all();
         $response = [];
         $response['admins'] = HomeLib::getAdminLvl2List($input['operation'],$input['typology']);
         $adminLvl = (isset($response['admins'][0]->admin_area_lvl2)) ? $response['admins'][0]->admin_area_lvl2 : '';
@@ -68,7 +68,7 @@ class HomeController extends Controller {
 
     public function postLocalities()
     {
-        $input = \Request::input();
+        $input = \Request::all();
         $response = [];
         $response['localities'] = HomeLib::getLocalityList($input['operation'],$input['typology'],$input['adminLvl2']);
 
@@ -98,7 +98,7 @@ class HomeController extends Controller {
          * 7 Land
          */
 
-        $input = \Request::input();
+        $input = \Request::all();
         $options = Constants::first();
 
         // Input validation
@@ -761,13 +761,13 @@ class HomeController extends Controller {
                 $ad->payment_day = OptionPaymentDay::where('id',$ad->payment_day_id)->value('name');
                 break;
         }
-        debug($ad->type);
+
         return view('ad',compact('ad','operation','typology', 'options'));
     }
 
     public function sendContactForm()
     {
-        $input = \Request::input();
+        $input = \Request::all();
         $rules = [
             'ad_ref'            => 'required|numeric',
             'contactName'       => 'required|string|max:64',

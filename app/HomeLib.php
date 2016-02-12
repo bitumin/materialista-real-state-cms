@@ -302,6 +302,7 @@ class HomeLib
                     ->get();
                 break;
         }
+
         if(isset($list))
             return $list;
         return [];

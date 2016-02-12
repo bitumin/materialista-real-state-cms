@@ -30,7 +30,7 @@ class AdminController extends Controller {
     }
 
     public function getNewAd() {
-        $input = \Request::input();
+        $input = \Request::all();
         $operation = (isset($input['operation'])) ? $input['operation'] : '0';
         $typology = (isset($input['typology'])) ? $input['typology'] : '0';
         if($typology=='7'||$typology=='8')
@@ -94,7 +94,7 @@ class AdminController extends Controller {
 
     public function checkAddress()
     {
-        $input = \Request::input();
+        $input = \Request::all();
         $address = urlencode($input['address']); // url encode the address
         $url = "http://maps.google.es/maps/api/geocode/json?sensor=false&address={$address}"; //google maps api
         $resp_json = file_get_contents($url); // get the json response from the url
@@ -114,7 +114,7 @@ class AdminController extends Controller {
 
     public function doNewAd()
     {
-        $input = \Request::input();
+        $input = \Request::all();
 
         //input 'corrections'
         if(isset($input['door'])) {
@@ -270,7 +270,7 @@ class AdminController extends Controller {
 
     public function doEditAd()
     {
-        $input = \Request::input();
+        $input = \Request::all();
 
         //input 'corrections'
         if(isset($input['door'])) {
@@ -1199,7 +1199,7 @@ class AdminController extends Controller {
 
     public function updateDevOptions()
     {
-        $input = \Request::input();
+        $input = \Request::all();
 
         $options = Constants::first();
         $options->n_ad_seeds = $input['n_ad_seeds'];
@@ -1245,7 +1245,7 @@ class AdminController extends Controller {
 
     public function updateWebInfo()
     {
-        $input = \Request::input();
+        $input = \Request::all();
 
         $options = Constants::first();
         $options->company_name = $input['company_name'];
@@ -1270,7 +1270,7 @@ class AdminController extends Controller {
 
     public function updateSearchOptions()
     {
-        $input = \Request::input();
+        $input = \Request::all();
 
         $options = Constants::first();
         $options->search_distance = $input['search_distance'];
