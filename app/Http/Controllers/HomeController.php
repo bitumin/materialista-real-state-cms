@@ -697,7 +697,7 @@ class HomeController extends Controller {
         switch($txt[1]) {
             case 'house':
                 $typology = 0;
-                $ad->type = CategoryHouse::where('id',$ad->category_house_id)->pluck('name');
+                $ad->type = CategoryHouse::where('id',$ad->category_house_id)->value('name');
                 break;
             case 'apartment':
                 $typology = 1;
@@ -712,45 +712,45 @@ class HomeController extends Controller {
                 break;
             case 'country_house':
                 $typology = 2;
-                $ad->type = CategoryCountryHouse::where('id',$ad->category_country_house_id)->pluck('name');
+                $ad->type = CategoryCountryHouse::where('id',$ad->category_country_house_id)->value('name');
                 break;
             case 'business':
                 $typology = 3;
-                $ad->type = CategoryBusiness::where('id',$ad->category_business_id)->pluck('name');
-                $ad->distribution = OptionBusinessDistribution::where('id',$ad->business_distribution_id)->pluck('name');
-                $ad->facade = OptionBusinessFacade::where('id',$ad->business_facade_id)->pluck('name');
-                $ad->location = OptionBusinessLocation::where('id',$ad->business_location_id)->pluck('name');
+                $ad->type = CategoryBusiness::where('id',$ad->category_business_id)->value('name');
+                $ad->distribution = OptionBusinessDistribution::where('id',$ad->business_distribution_id)->value('name');
+                $ad->facade = OptionBusinessFacade::where('id',$ad->business_facade_id)->value('name');
+                $ad->location = OptionBusinessLocation::where('id',$ad->business_location_id)->value('name');
                 break;
             case 'office':
                 $typology = 4;
                 $ad->type = 'Oficina';
-                $ad->distribution = OptionOfficeDistribution::where('id',$ad->office_distribution_id)->pluck('name');
+                $ad->distribution = OptionOfficeDistribution::where('id',$ad->office_distribution_id)->value('name');
                 break;
             case 'garage':
                 $typology = 5;
                 $ad->type = 'Garaje';
-                $ad->garage_capacity = OptionGarageCapacity::where('id',$ad->garage_capacity_id)->pluck('name');
+                $ad->garage_capacity = OptionGarageCapacity::where('id',$ad->garage_capacity_id)->value('name');
                 break;
             case 'land':
                 $typology = 6;
                 $ad->type = 'Terreno';
-                $ad->category_land = CategoryLand::where('id',$ad->category_land_id)->pluck('name');
-                $ad->nearest_town = OptionNearestTownDistance::where('id',$ad->nearest_town_distance_id)->pluck('name');
+                $ad->category_land = CategoryLand::where('id',$ad->category_land_id)->value('name');
+                $ad->nearest_town = OptionNearestTownDistance::where('id',$ad->nearest_town_distance_id)->value('name');
                 break;
             case 'room':
                 $typology = 7;
                 $ad->type = 'Habitación';
-                $ad->category_room = CategoryRoom::where('id',$ad->category_room_id)->pluck('name');
-                $ad->min_stay = OptionTenantMinStay::where('id',$ad->tenant_min_stay_id)->pluck('name');
-                $ad->current_gender = OptionCurrentTenantsGender::where('id',$ad->current_tenants_gender_id)->pluck('name');
-                $ad->gender = OptionTenantGender::where('id',$ad->tenant_gender_id)->pluck('name');
-                $ad->occupation = OptionTenantOccupation::where('id',$ad->tenant_occupation_id)->pluck('name');
-                $ad->sexual_orientation = OptionTenantSexualOrientation::where('id',$ad->tenant_sexual_orientation_id)->pluck('name');
+                $ad->category_room = CategoryRoom::where('id',$ad->category_room_id)->value('name');
+                $ad->min_stay = OptionTenantMinStay::where('id',$ad->tenant_min_stay_id)->value('name');
+                $ad->current_gender = OptionCurrentTenantsGender::where('id',$ad->current_tenants_gender_id)->value('name');
+                $ad->gender = OptionTenantGender::where('id',$ad->tenant_gender_id)->value('name');
+                $ad->occupation = OptionTenantOccupation::where('id',$ad->tenant_occupation_id)->value('name');
+                $ad->sexual_orientation = OptionTenantSexualOrientation::where('id',$ad->tenant_sexual_orientation_id)->value('name');
                 break;
             case 'vacation':
                 $typology = 8;
-                $ad->type = CategoryLodging::where('id',$ad->category_lodging_id)->pluck('name');
-                $ad->surroundings = OptionSurroundings::where('id',$ad->surroundings_id)->pluck('name');
+                $ad->type = CategoryLodging::where('id',$ad->category_lodging_id)->value('name');
+                $ad->surroundings = OptionSurroundings::where('id',$ad->surroundings_id)->value('name');
                 $ad->min_price_per_night = \DB::select(\DB::raw("
                   SELECT MIN(t2.p_one_month) as min_price_per_night
                   FROM rent_vacation AS t1
@@ -758,7 +758,7 @@ class HomeController extends Controller {
                   WHERE t1.id = ?;
                 "),[$ad->id]);
                 $ad->season_prices = SeasonPrice::where('rent_vacation_id',$ad->id)->get();
-                $ad->payment_day = OptionPaymentDay::where('id',$ad->payment_day_id)->pluck('name');
+                $ad->payment_day = OptionPaymentDay::where('id',$ad->payment_day_id)->value('name');
                 break;
         }
         debug($ad->type);
