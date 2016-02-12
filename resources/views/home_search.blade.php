@@ -348,9 +348,15 @@
                     }, function (response) {
                         $.each(response.localities, function (i, val) {
                             if (i != 0)
-                                $('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
+                                $('<a/>', {"href": 'javascript:', "data-value": val.locality, "class": 'list-group-item', text: val.locality})
+                                    .appendTo('#list-locality')
+                                    .append('<span/>', {"class": 'badge', text: val.total});
+                                //$('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
                             else
-                                $('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item active'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
+                                $('<a/>', {"href": 'javascript:', "data-value": val.locality, "class": 'list-group-item active', text: val.locality})
+                                    .appendTo('#list-locality')
+                                    .append('<span/>', {"class": 'badge', text: val.total});
+                                //$('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item active'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
                         });
                     }, 'json').always(function () {
                         updateInProgress = false;
@@ -366,15 +372,25 @@
                     }, function (response) {
                         $.each(response.admins, function (i, val) {
                             if (i != 0)
-                                $('#list-admin_lvl_2').append("<a href='javascript:' data-value='" + val.admin_area_lvl2 + "' class='list-group-item'>" + val.admin_area_lvl2 + "</a>");
+                                $('<a/>', {"href": 'javascript:', "data-value": val.admin_area_lvl2, "class": 'list-group-item', text: val.admin_area_lvl2})
+                                    .appendTo('#list-admin_lvl_2');
+                                //$('#list-admin_lvl_2').append("<a href='javascript:' data-value='" + val.admin_area_lvl2 + "' class='list-group-item'>" + val.admin_area_lvl2 + "</a>");
                             else
-                                $('#list-admin_lvl_2').append("<a href='javascript:' data-value='" + val.admin_area_lvl2 + "' class='list-group-item active'>" + val.admin_area_lvl2 + "</a>");
+                                $('<a/>', {"href": 'javascript:', "data-value": val.admin_area_lvl2, "class": 'list-group-item active', text: val.admin_area_lvl2})
+                                    .appendTo('#list-admin_lvl_2');
+                                //$('#list-admin_lvl_2').append("<a href='javascript:' data-value='" + val.admin_area_lvl2 + "' class='list-group-item active'>" + val.admin_area_lvl2 + "</a>");
                         });
                         $.each(response.localities, function (i, val) {
                             if (i != 0)
-                                $('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
+                                $('<a/>', {"href": 'javascript:', "data-value": val.locality, "class": 'list-group-item', text: val.locality})
+                                    .appendTo('#list-locality')
+                                    .append('<span/>', {"class": 'badge', text: val.total});
+                                //$('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
                             else
-                                $('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item active'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
+                                 $('<a/>', {"href": 'javascript:', "data-value": val.locality, "class": 'list-group-item active', text: val.locality})
+                                    .appendTo('#list-locality')
+                                    .append('<span/>', {"class": 'badge', text: val.total});
+                                //$('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item active'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
                         });
                     }, 'json').always(function () {
                         updateInProgress = false;
