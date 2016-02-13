@@ -350,12 +350,12 @@
                             if (i != 0)
                                 $('<a/>', {"href": 'javascript:', "data-value": val.locality, "class": 'list-group-item', text: val.locality})
                                     .appendTo('#list-locality')
-                                    .append('<span/>', {"class": 'badge', text: val.total});
+                                    .append("<span class='badge'>" + val.total + "</span>");
                                 //$('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
                             else
                                 $('<a/>', {"href": 'javascript:', "data-value": val.locality, "class": 'list-group-item active', text: val.locality})
                                     .appendTo('#list-locality')
-                                    .append('<span/>', {"class": 'badge', text: val.total});
+                                    .append("<span class='badge'>" + val.total + "</span>");
                                 //$('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item active'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
                         });
                     }, 'json').always(function () {
@@ -384,12 +384,12 @@
                             if (i != 0)
                                 $('<a/>', {"href": 'javascript:', "data-value": val.locality, "class": 'list-group-item', text: val.locality})
                                     .appendTo('#list-locality')
-                                    .append('<span/>', {"class": 'badge', text: val.total});
+                                    .append("<span class='badge'>" + val.total + "</span>");
                                 //$('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
                             else
                                  $('<a/>', {"href": 'javascript:', "data-value": val.locality, "class": 'list-group-item active', text: val.locality})
                                     .appendTo('#list-locality')
-                                    .append('<span/>', {"class": 'badge', text: val.total});
+                                    .append("<span class='badge'>" + val.total + "</span>");
                                 //$('#list-locality').append("<a href='javascript:' data-value='" + val.locality + "' class='list-group-item active'><span class='badge'>" + val.total + "</span>" + val.locality + "</a>");
                         });
                     }, 'json').always(function () {
